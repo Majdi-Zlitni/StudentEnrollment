@@ -92,7 +92,7 @@ do{
          tuitionBalance = tuitionBalance - payment;
          System.out.print("\n");
          System.out.println("----------------------------------------");
-         System.out.println("Thank you for your payment of RM" + payment);
+         System.out.println("Thank you for your payment of" + payment+"DTN");
          viewBalance();
 
          x=2;    //When user input all the right input, the do while loop stop
