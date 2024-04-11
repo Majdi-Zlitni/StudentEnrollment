@@ -1,4 +1,4 @@
-name: Jira PR Link
+name: Jira PR Link and Delete Branch After Merge
 
 on:
   pull_request:
@@ -6,6 +6,7 @@ on:
       - opened
       - synchronize
       - reopened
+      - closed
 
 jobs:
   enforce-jira-link:
@@ -17,7 +18,21 @@ jobs:
           pr_body=$(curl -sL -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" \
                     "https://api.github.com/repos/${{ github.repository }}/pulls/${{ github.event.pull_request.number }}" | \
                     jq -r '.body')
-          if [[ ! $pr_body =~ TASK-[0-9]+ ]]; then
+          if [[ ! $pr_body =~ KAN-[0-9]+ ]]; then
             echo "Jira task link not found in PR description."
             exit 1
           fi
+
+  delete-branch:
+    runs-on: ubuntu-latest
+    if: github.event_name == 'pull_request' && github.event.action == 'closed' && github.event.pull_request.merged == true
+
+    steps:
+      - name: Delete branch
+        uses: actions/checkout@v2
+        with:
+          ref: ${{ github.event.pull_request.head.ref }}
+      - name: Delete branch locally
+        run: git branch -d ${{ github.event.pull_request.head.ref }}
+      - name: Delete branch on remote
+        run: git push origin --delete ${{ github.event.pull_request.head.ref }}
