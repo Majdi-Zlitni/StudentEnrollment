@@ -4,7 +4,7 @@ package studentdatabaseapp;
 public class overriding{
    public void myMethod()
    {
-	System.out.println("**************************************************");
+	System.out.println("***************************************************");
    }	   
 }
 
