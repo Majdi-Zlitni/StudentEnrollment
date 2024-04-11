@@ -23,6 +23,8 @@ try{    //Exception handling start
     System.out.print("Enter student last name: ");
     this.lastName = in.nextLine();
 
+    System.out.print("Student Name is "+this.firstName+" "+ this.lastName );
+    
     System.out.println("----------------------------------------");
     System.out.print("1 - Semester 1\n2 - Semester 2\n3 - Semester 3\n4 - Semester 4\n5 - Semester 5\nEnter your semester: ");
     this.semester = in.nextInt();   
