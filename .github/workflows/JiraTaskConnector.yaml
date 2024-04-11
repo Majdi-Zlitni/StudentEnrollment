@@ -31,8 +31,6 @@ jobs:
       - name: Delete branch
         uses: actions/checkout@v2
         with:
-          ref: ${{ github.event.pull_request.head.ref }}
-      - name: Delete branch locally
-        run: git branch -d ${{ github.event.pull_request.head.ref }}
+          ref: ${{ github.event.pull_request.head.ref }}      
       - name: Delete branch on remote
         run: git push origin --delete ${{ github.event.pull_request.head.ref }}
