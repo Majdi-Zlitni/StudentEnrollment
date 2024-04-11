@@ -8,7 +8,7 @@ public class Student {
   private String paymentID;
   private String courses = null;
   private int tuitionBalance = 500;
-  private static int costOfCourse = 600;
+  private static int costOfCourse = 700;
   private static int id = 1000;
 
 
@@ -31,7 +31,6 @@ try{    //Exception handling start
 
     System.out.println("----------------------------------------");
     setStudentID();
-
     x=2;    //When user input all the right input, the do while loop stop
 
 }
