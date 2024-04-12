@@ -26,7 +26,7 @@ public class StudentDatabaseApp {
 	ov.myMethod();
 
   // Ask how many new student we want to add
-  System.out.print("Enter number of new students to enroll: ");
+  System.out.print("nbr of stds: ");
   Scanner in = new Scanner(System.in);
   int numOfStudents = in.nextInt();
   Student[] students = new Student[numOfStudents];
