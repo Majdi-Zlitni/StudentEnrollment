@@ -32,6 +32,8 @@ public class StudentDatabaseApp {
   Student[] students = new Student[numOfStudents];
 
   // Create n number of new students
+  //Créé n nombre du nouveau etudient
+
   for (int n = 0; n < numOfStudents; n++) {
    students[n] = new Student();
    students[n].enroll();
